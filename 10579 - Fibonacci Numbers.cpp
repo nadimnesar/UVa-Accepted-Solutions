@@ -13,14 +13,14 @@ using namespace std;
 #define YES             cout << "YES" << endl
 #define NO              cout << "NO" << endl
 
-vector <string> Fn;
+vs fibn;
 
-class Integer
+class bigint
 {
 private:
     string c;
 public:
-    // Method to Add two Integer number
+    //Add two Integer number
     string Add(string a,string b)
     {
         c.clear();
@@ -30,8 +30,7 @@ public:
             swap(a,b);
         while(int(b.length()) < int(a.length()))
             b.push_back('0');
-
-        int i = 0,carry = 0;
+        ll i = 0,carry = 0;
         while(a[i])
         {
             carry = carry + a[i]-48 + b[i]-48;
@@ -48,25 +47,25 @@ public:
         reverse(c.begin(),c.end());
         return c;
     }
-    // Method to Generate Fibonacci numbers
-    void F(string a,string b,long unsigned int n)
+    //Generate Fibonacci numbers
+    void fib(string a,string b,long unsigned int n)
     {
         if(n)
         {
-            Fn.push_back(a);
+            fibn.push_back(a);
             c = Add(a,b);
-            F(b,c,--n);
+            fib(b,c,--n);
         }
     }
 };
 
 int main()
 {
-    Integer Int;
-    long int n;
-    Int.F("1","1",5000);
+    bigint x;
+    ll n;
+    x.fib("1","1",5000);
     while(cin >> n)
     {
-        cout << Fn[n-1] << endl;
+        cout << fibn[n-1] << endl;
     }
 }
